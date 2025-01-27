@@ -1,3 +1,6 @@
+-- exit terminal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, desc = "exit terminal mode" })
+
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -110,4 +113,9 @@ end, { noremap = true, silent = true, desc = "format selected code" })
 
 -- remap next position jump list
 vim.keymap.set('n', '<C-y>', '<C-i>', { noremap = false, desc = 'jump to newer position in jump list' })
+
+-- code actions
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true, desc = 'code actions' })
+
+
 

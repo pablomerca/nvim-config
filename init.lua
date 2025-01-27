@@ -32,4 +32,5 @@ require("lazy").setup({
 	require("plugins.liveserver"),
 	require("plugins.snacks"),
 	require("plugins.copilot"),
+	require("plugins.leetcode")
 })
