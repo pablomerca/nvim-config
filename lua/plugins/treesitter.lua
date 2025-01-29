@@ -29,6 +29,7 @@ return { -- Highlight, edit, and navigate code
       'markdown_inline',
       'bash',
       'tsx',
+      'latex',
       'css',
       'html',
     },

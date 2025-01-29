@@ -1,5 +1,7 @@
 require("core.keymaps")
 require("core.options")
+-- scripts
+require("scripts.md-to-pdf")
 
 -- install plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -17,7 +19,7 @@ require("lazy").setup({
 	-- todos los plugins que ponemos aca se instalan.
 	require("plugins.neotree"),
 	require("plugins.bufferline"),
-    require("plugins.lualine"),
+	require("plugins.lualine"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
 	require("plugins.colorscheme"),
@@ -32,5 +34,11 @@ require("lazy").setup({
 	require("plugins.liveserver"),
 	require("plugins.snacks"),
 	require("plugins.copilot"),
-	require("plugins.leetcode")
+	require("plugins.leetcode"),
+	require("plugins.debugger"),
+	require("plugins.vimtex"),
+	require("plugins.markdown")
+
+
+
 })

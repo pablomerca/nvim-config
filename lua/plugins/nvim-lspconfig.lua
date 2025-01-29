@@ -99,6 +99,18 @@ return {
       on_attach = on_attach,
     })
 
+    -- configure tex servers
+    lspconfig["ltex"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["texlab"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+
     lspconfig["pylsp"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
