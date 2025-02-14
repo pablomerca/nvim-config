@@ -2,6 +2,7 @@ require("core.keymaps")
 require("core.options")
 -- scripts
 require("scripts.md-to-pdf")
+require("scripts.competitive-programming")
 
 -- install plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -37,7 +38,8 @@ require("lazy").setup({
 	require("plugins.leetcode"),
 	require("plugins.debugger"),
 	require("plugins.vimtex"),
-	require("plugins.markdown")
+	require("plugins.markdown"),
+	require("plugins.ufo")
 
 
 

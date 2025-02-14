@@ -2,26 +2,33 @@
 
 -- Function to compile Markdown to PDF using Pandoc
 function compile_markdown_to_pdf()
-	local current_file = vim.fn.expand("%") -- Get the current file name
-	local output_file = vim.fn.expand("%:r") .. ".pdf" -- Create PDF file name
+    -- Save any changes to the file before compiling
+    vim.cmd('write')
+    
+    local current_file = vim.fn.expand('%')  -- Get the current file name
+    local output_file = vim.fn.expand('%:r') .. '.pdf'  -- Create PDF file name
+    local current_dir = vim.fn.expand('%:p:h')  -- Get the directory of the current file
 
-	-- Command to compile Markdown to PDF using Pandoc
-	local pandoc_cmd = string.format('pandoc "%s" -o "%s"', current_file, output_file)
+    -- Change to the directory of the Markdown file
+    vim.cmd('cd ' .. current_dir)
 
-	-- Execute the Pandoc command
-	local handle = io.popen(pandoc_cmd)
-	local result = handle:read("*a")
-	handle:close()
+    -- Command to compile Markdown to PDF using Pandoc
+    local pandoc_cmd = string.format('pandoc "%s" -o "%s"', current_file, output_file)
 
-	-- Check if the compilation was successful
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_err_writeln("Pandoc compilation failed: " .. result)
-		return false
-	end
+    -- Execute the Pandoc command
+    local handle = io.popen(pandoc_cmd)
+    local result = handle:read('*a')
+    handle:close()
 
-	-- Notify the user that the PDF has been compiled
-	vim.api.nvim_echo({ { "PDF compiled: " .. output_file, "None" } }, true, {})
-	return true
+    -- Check if the compilation was successful
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_err_writeln('Pandoc compilation failed: ' .. result)
+        return false
+    end
+
+    -- Notify the user that the PDF has been compiled
+    vim.api.nvim_echo({{'PDF compiled: ' .. output_file, 'None'}}, true, {})
+    return true
 end
 
 -- Function to render the PDF in Zathura

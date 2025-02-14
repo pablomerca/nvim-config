@@ -80,6 +80,8 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
 
+vim.keymap.set({"n","v"}, "<leader>y", 'y$', {desc = "yank till end of line"})
+
 -- Pasting last yanked
 vim.keymap.set("n", "<leader>p", '"0p', opts)
 

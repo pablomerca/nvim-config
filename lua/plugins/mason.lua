@@ -27,6 +27,7 @@ return {
         "stylua",
         "eslint_d",
         "prettierd",
+        "cpptools",
       },
     })
   end,
