@@ -1,5 +1,7 @@
 -- exit terminal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, desc = "exit terminal mode" })
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, desc = "exit terminal mode" })
+vim.keymap.set({"n", "t"}, "<A-t>", "<cmd> lua Snacks.terminal()<CR>", { noremap = true, desc = "toggle terminal" })
+
 
 -- Set leader key
 vim.g.mapleader = " "
@@ -39,8 +41,8 @@ vim.keymap.set({ "n", "v" }, "K", "4k", { silent = true })
 vim.keymap.set("n", "<leader>j", "J", { silent = true })
 
 -- Resize with arrows
-vim.keymap.set("n", "<Up>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<Down>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<Down>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
 
@@ -80,7 +82,7 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
 
-vim.keymap.set({"n","v"}, "<leader>y", 'y$', {desc = "yank till end of line"})
+vim.keymap.set({ "n", "v" }, "<leader>y", "y$", { desc = "yank till end of line" })
 
 -- Pasting last yanked
 vim.keymap.set("n", "<leader>p", '"0p', opts)
@@ -112,12 +114,8 @@ vim.keymap.set("v", "<leader>f", function()
 	})
 end, { noremap = true, silent = true, desc = "format selected code" })
 
-
 -- remap next position jump list
-vim.keymap.set('n', '<C-y>', '<C-i>', { noremap = false, desc = 'jump to newer position in jump list' })
+vim.keymap.set("n", "<C-y>", "<C-i>", { noremap = false, desc = "jump to newer position in jump list" })
 
 -- code actions
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true, desc = 'code actions' })
-
-
-
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "code actions" })

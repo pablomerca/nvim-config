@@ -4,7 +4,7 @@
 function compile_markdown_to_pdf()
     -- Save any changes to the file before compiling
     vim.cmd('write')
-    
+
     local current_file = vim.fn.expand('%')  -- Get the current file name
     local output_file = vim.fn.expand('%:r') .. '.pdf'  -- Create PDF file name
     local current_dir = vim.fn.expand('%:p:h')  -- Get the directory of the current file
