@@ -1,3 +1,4 @@
+require("scripts.pdfHandler")
 require("core.keymaps")
 require("core.options")
 -- scripts
