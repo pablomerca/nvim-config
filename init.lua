@@ -1,9 +1,9 @@
-require("scripts.pdfHandler")
 require("core.keymaps")
 require("core.options")
 -- scripts
 require("scripts.md-to-pdf")
 require("scripts.competitive-programming")
+require("scripts.pdfHandler")
 
 -- install plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

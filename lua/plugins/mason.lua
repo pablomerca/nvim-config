@@ -17,6 +17,7 @@ return {
         "lua_ls",
         "html",
         "cssls",
+        "clangd",
       },
       automatic_installation = true,
     })
