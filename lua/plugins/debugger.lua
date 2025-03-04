@@ -70,12 +70,14 @@ return {
         end, { desc = "Set breakpoint condition" })
 
 		-- configure c++
+        local NVIM_SHARE = os.getenv("NVIM_SHARE")
+
 		-- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
 		dap.adapters.cppdbg = {
 			id = "cppdbg",
 			type = "executable",
 			-- TODO change this to your path
-			command = "/home/pablo-mercado/.local/share/nvim/mason/bin/OpenDebugAD7",
+            command = NVIM_SHARE .. "/mason/bin/OpenDebugAD7",
 		}
 		dap.configurations.cpp = {
 			{

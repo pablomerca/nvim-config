@@ -16,6 +16,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 -- setup plugin manager
 require("lazy").setup({
 	-- todos los plugins que ponemos aca se instalan.
@@ -46,6 +47,8 @@ require("lazy").setup({
 	require("plugins.markdown"),
 	require("plugins.ufo")
 
-
-
 })
+
+-- custom snippets
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+
