@@ -39,13 +39,17 @@ return {
 			require("dap").toggle_breakpoint()
 		end, { desc = "Toggle breakpoint" })
 
-		vim.keymap.set("n", "<F10>", function()
+		vim.keymap.set("n", "<F8>", function()
 			require("dap").step_over()
 		end, { desc = "Step over" })
 
-		vim.keymap.set("n", "<F11>", function()
+		vim.keymap.set("n", "<F7>", function()
 			require("dap").step_into()
 		end, { desc = "Step into" })
+
+		vim.keymap.set("n", "<F6>", function()
+			require("dap").step_out()
+		end, { desc = "Step out" })
 
 		vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
 			require("dap.ui.widgets").hover()
@@ -68,6 +72,10 @@ return {
         vim.keymap.set("n", "<leader>dB", function()
             require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
         end, { desc = "Set breakpoint condition" })
+
+        vim.keymap.set({"n","v"}, "<leader>dw", function()
+            dapui.elements.watches.add(vim.fn.input('Expresion to watch: '));
+        end, { desc = "Add expression to watch" })
 
 		-- configure c++
         local NVIM_SHARE = os.getenv("NVIM_SHARE")
