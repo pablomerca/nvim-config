@@ -8,6 +8,7 @@ local function compile_cpp()
 end
 
 vim.api.nvim_create_user_command("Cpc", compile_cpp, {}) -- Create the :Cpc command
+vim.keymap.set("n", "<leader>cc", ":Cpc<CR>", { noremap = true, silent = true, desc = "Compile cp code"})
 
 
 -- ------------------------------------------------------------------
@@ -22,6 +23,7 @@ local function run_cpp_program()
 end
 
 vim.api.nvim_create_user_command("Cpt", run_cpp_program, {})
+vim.keymap.set("n", "<leader>ct", ":Cpt<CR>", { noremap = true, silent = true, desc = "Test cp code"})
 
 
 -- ------------------------------------------------------------------
