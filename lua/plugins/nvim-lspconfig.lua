@@ -66,7 +66,7 @@ return {
 				vim.diagnostic.open_float,
 				{ buffer = bufnr, desc = "Show diagnostics for line" }
 			)
-			-- vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", {buffer = bufnr, desc = 'Show definition, references'})
+			vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", {buffer = bufnr, desc = 'Show definition, references'})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
 		end
 
@@ -76,6 +76,12 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
+
+        -- configure java server
+		lspconfig["jdtls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- configure typescript server with plugin
 		lspconfig["ts_ls"].setup({
