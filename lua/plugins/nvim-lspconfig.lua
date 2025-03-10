@@ -51,7 +51,7 @@ return {
 				"n",
 				"<leader>h",
 				vim.lsp.buf.hover,
-				{ buffer = bufnr, desc = "Show documentation for what is under cursor" }
+				{ buffer = bufnr, desc = "Show (hover) documentation for what is under cursor" }
 			)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
 			vim.keymap.set(

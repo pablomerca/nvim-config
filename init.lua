@@ -45,7 +45,9 @@ require("lazy").setup({
 	require("plugins.debugger"),
 	require("plugins.vimtex"),
 	require("plugins.markdown"),
-	require("plugins.ufo")
+	require("plugins.ufo"),
+	require("plugins.nvim-jdtls")
+
 
 })
 
