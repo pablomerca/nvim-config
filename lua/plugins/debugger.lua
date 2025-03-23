@@ -55,9 +55,11 @@ return {
 			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "Set breakpoint condition" })
 
-		vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
-			require("dap.ui.widgets").hover()
-		end, { desc = "Hover (debugger)" })
+        vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+            require("dap.ui.widgets").hover();
+            -- Create a buffer-local mapping for "q" to close the hover window
+            vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd> close <CR>", { noremap = true, silent = true })
+        end, {desc = "Hover in debugger"})
 
 		vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
 			require("dap.ui.widgets").preview()
