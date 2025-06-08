@@ -2,6 +2,8 @@
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, desc = "exit terminal mode" })
 vim.keymap.set({"n", "t"}, "<A-t>", "<cmd> lua Snacks.terminal()<CR>", { noremap = true, desc = "toggle terminal" })
 
+-- alternative escape
+vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 -- Set leader key
 vim.g.mapleader = " "
@@ -82,7 +84,7 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
 
-vim.keymap.set({ "n", "v" }, "<leader>y", "y$", { desc = "yank till end of line" })
+vim.keymap.set({ "n", "v" }, "<leader>y", "ggyG", { desc = "yank all file content" })
 
 -- Pasting last yanked
 vim.keymap.set("n", "<leader>p", '"0p', opts)
