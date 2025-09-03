@@ -39,14 +39,26 @@ vim.keymap.set("n", "N", "Nzzzv", opts)
 vim.keymap.set({ "n", "v" }, "J", "4j", { silent = true })
 vim.keymap.set({ "n", "v" }, "K", "4k", { silent = true })
 
+-- move with arrows
+vim.keymap.set({"n", "v"}, "<Up>", "k", opts)
+vim.keymap.set({"n", "v"}, "<Down>", "j", opts)
+vim.keymap.set({"n", "v"}, "<Left>", "h", opts)
+vim.keymap.set({"n", "v"}, "<Right>", "l", opts)
+
+-- move fast verticaly with arrows
+vim.keymap.set({"n", "v"}, "<S-Up>", "4k", opts)
+vim.keymap.set({"n", "v"}, "<S-Down>", "4j", opts)
+
 -- join lines
 vim.keymap.set("n", "<leader>j", "J", { silent = true })
 
--- Resize with arrows
-vim.keymap.set("n", "<Up>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<Down>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
-vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
+
+-- Resize with Alt + Arrow keys
+vim.keymap.set("n", "<A-Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<A-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>", opts)
+
 
 -- Buffers
 vim.keymap.set("n", "L", ":bnext<CR>", opts)
