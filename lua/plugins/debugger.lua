@@ -4,9 +4,11 @@ return {
 	-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 	"mfussenegger/nvim-dap",
 
+
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
+        "mfussenegger/nvim-dap-python",
 	},
 
 	config = function()
@@ -15,6 +17,7 @@ return {
 
 		-- setup
 		require("dapui").setup()
+        require("dap-python").setup("python3")
 
 		-- confugure dapui
 		dap.listeners.before.attach.dapui_config = function()
